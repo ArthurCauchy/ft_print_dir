@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 10:36:33 by acauchy           #+#    #+#             */
-/*   Updated: 2017/12/13 14:18:49 by acauchy          ###   ########.fr       */
+/*   Updated: 2017/12/13 16:05:16 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char **argv)
 {
 	DIR				*dir;
 	struct dirent	*subdir;
+
 	if (argc != 2)
 	{
 		ft_putendl("usage: ./ft_list_dir <directory>");
@@ -33,9 +34,10 @@ int	main(int argc, char **argv)
 			{
 				ft_putendl(subdir->d_name);
 			}
+			closedir(dir);
 		}
 		else
-			perror(strerror(errno));
+			perror(argv[0]);
 	}
 	return (0);
 }
